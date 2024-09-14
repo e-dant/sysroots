@@ -84,7 +84,6 @@ class Toolchain:
     triple: str
     sysroot_path: str
     include_paths: list[str]
-    cc_flags: list[str]
     sysroot_via_container: Container
 
     def copy_sysroot_to_host(self):
@@ -102,10 +101,6 @@ TOOLCHAINS = [
             "usr/include/arm-linux-gnueabihf/c++/12",
             "usr/include/arm-linux-gnueabihf",
         ],
-        [
-            "-mfloat-abi=hard",
-            "-mfpu=neon",
-        ],
         Container("linux/arm64", "debian"),
     ),
     Toolchain(
@@ -116,10 +111,6 @@ TOOLCHAINS = [
             "usr/include/c++/12",
             "usr/include/arm-linux-gnueabihf/c++/12",
             "usr/include/arm-linux-gnueabihf",
-        ],
-        [
-            "-mfloat-abi=hard",
-            "-mfpu=neon",
         ],
         Container("linux/arm/v7", "debian"),
     ),
@@ -132,10 +123,6 @@ TOOLCHAINS = [
             "usr/include/arm-linux-gnueabihf/c++/12",
             "usr/include/arm-linux-gnueabihf",
         ],
-        [
-            "-mfloat-abi=hard",
-            "-mfpu=neon",
-        ],
         Container("linux/arm/v6", "debian"),
     ),
     Toolchain(
@@ -144,8 +131,9 @@ TOOLCHAINS = [
         [
             "usr/include",
             "usr/include/c++/12",
+            "usr/include/x86_64-linux-gnu/c++/12",
+            "usr/include/x86_64-linux-gnu",
         ],
-        [],
         Container("linux/amd64", "debian"),
     ),
     Toolchain(
@@ -154,8 +142,9 @@ TOOLCHAINS = [
         [
             "usr/include",
             "usr/include/c++/12",
+            "usr/include/i686-linux-gnu/c++/12",
+            "usr/include/i686-linux-gnu",
         ],
-        [],
         Container("linux/i386", "debian"),
     ),
     Toolchain(
@@ -166,10 +155,6 @@ TOOLCHAINS = [
             "usr/include/c++/12",
             "usr/include/arm-linux-gnueabihf/c++/12",
             "usr/include/arm-linux-gnueabihf",
-        ],
-        [
-            "-mfloat-abi=hard",
-            "-mfpu=neon",
         ],
         Container("linux/arm64", "alpine"),
     ),
@@ -182,10 +167,6 @@ TOOLCHAINS = [
             "usr/include/arm-linux-gnueabihf/c++/12",
             "usr/include/arm-linux-gnueabihf",
         ],
-        [
-            "-mfloat-abi=hard",
-            "-mfpu=neon",
-        ],
         Container("linux/arm/v7", "alpine"),
     ),
     Toolchain(
@@ -197,10 +178,6 @@ TOOLCHAINS = [
             "usr/include/arm-linux-gnueabihf/c++/12",
             "usr/include/arm-linux-gnueabihf",
         ],
-        [
-            "-mfloat-abi=hard",
-            "-mfpu=neon",
-        ],
         Container("linux/arm/v6", "alpine"),
     ),
     Toolchain(
@@ -209,8 +186,9 @@ TOOLCHAINS = [
         [
             "usr/include",
             "usr/include/c++/12",
+            "usr/include/x86_64-linux-gnu/c++/12",
+            "usr/include/x86_64-linux-gnu",
         ],
-        [],
         Container("linux/amd64", "alpine"),
     ),
     Toolchain(
@@ -219,8 +197,9 @@ TOOLCHAINS = [
         [
             "usr/include",
             "usr/include/c++/12",
+            "usr/include/i686-linux-gnu/c++/12",
+            "usr/include/i686-linux-gnu",
         ],
-        [],
         Container("linux/i386", "alpine"),
     ),
 ]
